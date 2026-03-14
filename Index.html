@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Vie En Rose · Kothapet | full floral experience</title>
+  <!-- Font Awesome 6 (free) + Google Font for extra elegance -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 30%, #ffd9e8, #fbc1d0 40%, #f6a5c0 75%, #dea5b4);
+      background-attachment: fixed;
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ---------- animated floral overlay (different tones) ---------- */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" opacity="0.12"><path fill="%23d43f6e" d="M120,120 Q140,70 190,90 Q210,40 260,80 Q310,40 330,100 Q390,120 350,180 Q380,240 310,250 Q290,320 220,290 Q160,340 120,290 Q60,280 90,210 Q40,160 120,120Z"/><path fill="%23f691b5" d="M280,280 Q310,240 350,270 Q370,220 320,190 Q360,130 290,120 Q280,50 220,90 Q150,60 140,140 Q70,150 110,210 Q60,270 130,280 Q140,340 210,310 Q250,360 300,310 Q320,340 280,280Z"/><circle fill="%23ffb0c3" cx="180" cy="180" r="26"/><circle fill="%23ff87ab" cx="290" cy="100" r="20"/><circle fill="%23fc9ec7" cx="70" cy="290" r="28"/></svg>') repeat;
+      pointer-events: none;
+      z-index: 0;
+      animation: slowDrift 50s infinite alternate ease-in-out;
+    }
+
+    @keyframes slowDrift {
+      0% { background-position: 0 0; }
+      100% { background-position: 120px 80px; }
+    }
+
+    /* main card – iridescent pearl with multi‑shadow */
+    .rose-palace {
+      position: relative;
+      z-index: 20;
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 240, 245, 0.3);
+      backdrop-filter: blur(20px) saturate(200%);
+      -webkit-backdrop-filter: blur(20px) saturate(200%);
+      border-radius: 60px 60px 40px 40px;
+      box-shadow: 0 40px 70px -10px rgba(150, 40, 80, 0.5),
+                  0 0 0 2px rgba(255, 210, 235, 0.9) inset,
+                  0 0 50px #ffb8d2,
+                  0 20px 40px -15px #b8436e;
+      padding: 2.2rem 2.5rem;
+      transition: box-shadow 0.3s, transform 0.2s;
+      border: 1px solid rgba(255, 200, 230, 0.8);
+    }
+
+    .rose-palace:hover {
+      box-shadow: 0 45px 80px -8px #ac3f6b, 0 0 0 3px #ffe2f0 inset, 0 0 70px #ff98c1;
+      transform: scale(1.003);
+    }
+
+    /* ----- header with gradient scale (different color range) ----- */
+    .en-tete {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+
+    .en-tete h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 500;
+      font-style: italic;
+      background: linear-gradient(145deg, #9f3e64, #cd5b8a, #bd4b77, #e07da3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 40px #ffbfd7, 4px 8px 12px rgba(140, 40, 70, 0.2);
+      letter-spacing: 3px;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .floral-badge {
+      background: rgba(230, 190, 215, 0.5);
+      backdrop-filter: blur(8px);
+      padding: 0.6rem 2.5rem;
+      border-radius: 80px;
+      font-size: 1.35rem;
+      color: #612a46;
+      border: 2px solid #fec7dd;
+      box-shadow: 0 10px 25px -12px #aa4972;
+      margin: 0.5rem 0 1rem;
+      font-weight: 400;
+      display: inline-flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .floral-badge i {
+      color: #bf3066;
+      font-size: 1.7rem;
+      filter: drop-shadow(0 0 10px #ff98be);
+      transition: transform 0.2s;
+    }
+    .floral-badge i:hover {
+      transform: rotate(12deg) scale(1.1);
+    }
+
+    /* address strip with new colors (violet/pink gradient) */
+    .address-ribbon {
+      background: linear-gradient(115deg, #fdcde2, #fbe1f0, #f8cce3);
+      padding: 0.9rem 2.2rem;
+      border-radius: 100px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #551c38;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem 2.2rem;
+      margin: 0.7rem 0 1.8rem;
+      border: 1px solid #f5a9c9;
+      box-shadow: 0 4px 18px #f6bfd6;
+    }
+
+    .address-ribbon i {
+      color: #b82c64;
+      font-size: 1.3rem;
+      width: 1.8rem;
+    }
+
+    /* ---- price row with distinct color palette (emerald + pink) ---- */
+    .infos-premium {
+      display: flex;
+      flex-wrap: wrap;
+      background: rgba(65, 35, 55, 0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 60px;
+      padding: 1.2rem 2rem;
+      justify-content: space-around;
+      gap: 1rem 2.2rem;
+      margin: 2.2rem 0 1.8rem;
+      border: 1px solid #fcbed9;
+      border-top: 2px solid #fdc2dd;
+      box-shadow: 0 15px 30px -16px #6d2b4b;
+    }
+
+    .premium-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 230, 245, 0.4);
+      padding: 0.5rem 1.8rem 0.5rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid #ffbbd5;
+    }
+
+    .premium-item i {
+      font-size: 2.3rem;
+      color: #c5477a;
+      filter: drop-shadow(0 0 12px #feb0d0);
+    }
+
+    .premium-item span {
+      font-weight: 600;
+      color: #2f1422;
+      font-size: 1.2rem;
+    }
+
+    .small-note {
+      background: #cf6f97;
+      color: #ffeaf3;
+      padding: 0.3rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.7px;
+      border: 1px solid white;
+    }
+
+    /* ----- mosaic visual effects grid (4 blocks with distinct colors) ----- */
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.3rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .mosaic-card {
+      background: rgba(255, 220, 240, 0.35);
+      backdrop-filter: blur(9px);
+      padding: 1.5rem 0.5rem;
+      border-radius: 40px;
+      text-align: center;
+      border: 1px solid #ffb7d5;
+      transition: 0.25s ease;
+      box-shadow: 0 16px 28px -20px #ad4572;
+    }
+
+    .mosaic-card:nth-child(1) { background: rgba(210, 180, 210, 0.45); }  /* lavender */
+    .mosaic-card:nth-child(2) { background: rgba(245, 200, 215, 0.55); }  /* soft rose */
+    .mosaic-card:nth-child(3) { background: rgba(230, 185, 200, 0.5); }   /* dusty pink */
+    .mosaic-card:nth-child(4) { background: rgba(255, 195, 220, 0.6); }   /* light coral */
+
+    .mosaic-card:hover {
+      transform: translateY(-9px) scale(1.02);
+      background: rgba(255, 190, 220, 0.8);
+      border-color: #fb8cb0;
+      box-shadow: 0 18px 30px -8px #d45e8d;
+    }
+
+    .mosaic-card i {
+      font-size: 2.6rem;
+      color: #992f59;
+      text-shadow: 0 0 20px #ffbedc;
+      margin-bottom: 0.7rem;
+    }
+
+    .mosaic-card h4 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #501f38;
+      border-bottom: 2px dotted #f292b5;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .mosaic-card p {
+      font-weight: 500;
+      color: #3d142b;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      padding: 0 0.2rem;
+    }
+
+    /* ---- live activity panel (dynamic colors) ---- */
+    .live-panel {
+      background: linear-gradient(125deg, rgba(250, 205, 225, 0.7), rgba(240, 170, 200, 0.6));
+      backdrop-filter: blur(8px);
+      padding: 1.3rem 2rem;
+      border-radius: 90px;
+      margin: 2.2rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      border: 1px solid #ffb2cf;
+      color: #3a1426;
+      font-weight: 600;
+      box-shadow: 0 5px 20px #efb0c7;
+    }
+
+    .live-panel i {
+      font-size: 2rem;
+      color: #a93463;
+      animation: pulseSoft 2.2s infinite;
+    }
+
+    @keyframes pulseSoft {
+      0% { text-shadow: 0 0 5px #ff80b0; }
+      50% { text-shadow: 0 0 25px #ffb0d0, 0 0 10px #ff88b8; transform: scale(1.04); }
+      100% { text-shadow: 0 0 5px #ff80b0; }
+    }
+
+    .live-tag {
+      background: #842d54;
+      color: #ffe3f1;
+      padding: 0.4rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1rem;
+    }
+
+    /* ----- CTA buttons (different hover & color) ----- */
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 2.8rem 0 1rem;
+    }
+
+    .action-btn {
+      background: rgba(245, 215, 235, 0.65);
+      backdrop-filter: blur(14px);
+      border: 2px solid #fdafcf;
+      padding: 1rem 2.5rem;
+      border-radius: 80px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #681f45;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      transition: 0.25s;
+      cursor: pointer;
+      box-shadow: 0 6px 18px #cf80a5;
+    }
+
+    .action-btn:nth-child(1) { background: #fbd1e6; }
+    .action-btn:nth-child(2) { background: #f6c2db; }
+    .action-btn:nth-child(3) { background: #fad5e8; }
+
+    .action-btn:hover {
+      background: #ffbfde;
+      border-color: #fb79ac;
+      box-shadow: 0 15px 35px -8px #bc5883;
+      transform: scale(1.06) rotate(-0.4deg);
+      color: #46162f;
+    }
+
+    .action-btn i {
+      font-size: 1.6rem;
+      color: #b43a68;
+    }
+
+    /* footer quote with gradient */
+    .signature {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 400;
+      color: #45253b;
+      background: linear-gradient(145deg, #f6d1e0, #f9e2ed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px #feb0d2;
+    }
+
+    .branches {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #701f49;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      .mosaic-grid { grid-template-columns: repeat(2, 1fr); }
+      .rose-palace { padding: 1.8rem; }
+      .en-tete h1 { font-size: 3.2rem; }
+    }
+    @media (max-width: 500px) {
+      .mosaic-grid { grid-template-columns: 1fr; }
+      .infos-premium { flex-direction: column; align-items: stretch; }
+    }
+
+    /* floating whimsy particles (extra visual layering) */
+    .particle {
+      position: fixed;
+      width: 8px; height: 8px;
+      background: #ffb7d0;
+      border-radius: 50%;
+      filter: blur(3px);
+      opacity: 0.2;
+      animation: floatAround 22s infinite alternate;
+      z-index: 5;
+      pointer-events: none;
+    }
+    @keyframes floatAround {
+      0% { transform: translate(0,0) scale(1); }
+      100% { transform: translate(90px, -120px) scale(1.8); }
+    }
+    .p1 { top: 15%; left: 8%; background: #eb7ca3; width: 20px; height: 20px; }
+    .p2 { top: 70%; left: 85%; background: #ffb0cb; width: 40px; height: 40px; opacity: 0.15; animation-duration: 29s; }
+    .p3 { top: 30%; left: 70%; background: #ff93c0; width: 15px; height: 15px; }
+    .p4 { bottom: 10%; left: 15%; background: #fec7dc; width: 30px; height: 30px; animation-duration: 18s; }
+  </style>
+</head>
+<body>
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+  <div class="particle p4"></div>
+
+  <div class="rose-palace">
+    <div class="en-tete">
+      <h1>La Vie En Rose</h1>
+      <div class="floral-badge">
+        <i class="fas fa-rose"></i>   Kothapet · Bistrot & Fleurs   <i class="fas fa-rose"></i>
+        <i class="fas fa-sparkles"></i> <i class="fas fa-heart"></i>
+      </div>
+    </div>
+
+    <!-- location card with new colors -->
+    <div class="address-ribbon">
+      <i class="fas fa-location-dot"></i> 3rd floor, Rohit goud estate, near metro pillar 1610 · Saroornagar, Hyderabad 500035
+      <i class="fas fa-train-subway"></i>
+    </div>
+
+    <!-- premium infos (price & cuisine) -->
+    <div class="infos-premium">
+      <div class="premium-item"><i class="fas fa-indian-rupee-sign"></i><span> ₹800 – ₹1.200 / two</span></div>
+      <div class="premium-item"><i class="fas fa-kitchen-set"></i><span> North Indian · Chinese · Continental</span></div>
+      <div class="small-note"><i class="fas-regular fa-clock"></i> 15% off online</div>
+    </div>
+
+    <!-- MOSAIC GRID – 4 elements with variable colors & micro-interactions (full visual variety) -->
+    <div class="mosaic-grid">
+      <div class="mosaic-card">
+        <i class="fas fa-clock"></i>
+        <h4>hours</h4>
+        <p>12:00 – 23:30 (daily)<br> <i class="fas fa-sun"></i> open till 11:30pm</p>
+        <span style="background:#ffe3f0; padding:0.3rem 1rem; border-radius:60px; display:inline-block; margin-top:8px;">updated 5 weeks ago</span>
+      </div>
+      <div class="mosaic-card">
+        <i class="fas fa-phone-flip"></i>
+        <h4>call us</h4>
+        <p><i class="fas fa-mobile"></i> 83099 46961 <br> 72868 53101 <br> 85550 87926</p>
+        <span style="background:#ffc7df; padding:0.2rem 1.2rem; border-radius:50px;">📞 talk</span>
+      </div>
+      <div class="mosaic-card">
+        <i class="fas fa-star"></i>
+        <h4>hyderabad's first</h4>
+        <p>pink floral cafe & event space · magical garden theme 💕</p>
+        <span style="background:#ffdbea; padding:0.3rem 1rem; border-radius:60px;">⭐ 4.3 reviews</span>
+      </div>
+      <div class="mosaic-card">
+        <i class="fas fa-location-arrow"></i>
+        <h4>exact spot</h4>
+        <p>above Fashion factory, Rohit goud estate, 3rd floor, Kothapet</p>
+        <i class="fas fa-map-pin" style="color:#b13662;"></i>
+      </div>
+    </div>
+
+    <!-- live activity panel with dynamic color effect & JS update -->
+    <div class="live-panel" id="livePanel">
+      <div><i class="fas fa-chart-simple"></i> <span id="liveMessage">popular: as busy as it gets</span></div>
+      <div><i class="fas fa-hourglass-half"></i> 30 min – 2 hr typical visit</div>
+      <div class="live-tag" id="liveBadge">🌸 live: peak</div>
+    </div>
+
+    <!-- buttons with interactive JS visual feedback -->
+    <div class="action-row">
+      <button class="action-btn" id="orderBtn"><i class="fas fa-bag-shopping"></i> order · 15% off</button>
+      <button class="action-btn" id="dirBtn"><i class="fas fa-map"></i> directions</button>
+      <button class="action-btn" id="eventBtn"><i class="fas fa-calendar-check"></i> event space</button>
+    </div>
+
+    <!-- romantic footer with branches -->
+    <div class="signature">
+      “every visit becomes a beautiful memory” 
+    </div>
+    <div class="branches">
+      <span><i class="fas fa-location-dot"></i> Gachibowli</span>
+      <span><i class="fas fa-location-dot"></i> Sainikpuri</span>
+      <span><i class="fas fa-location-dot"></i> Kothapet</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // live panel – rotate messages & change colors every 5 seconds (visual effect)
+      const liveSpan = document.getElementById('liveMessage');
+      const liveBadge = document.getElementById('liveBadge');
+      const livePanel = document.getElementById('livePanel');
+      const messages = [
+        "popular: as busy as it gets",
+        "evening rush · cozy date spot",
+        "lively crowd + pink lights",
+        "perfect time for rose latte",
+        "today: 30‑min wait"
+      ];
+      const badges = [
+        "🌸 live: peak",
+        "✨ très animé",
+        "💞 busy · great vibe",
+        "🌹 busy but charming",
+        "⭐ lively evening"
+      ];
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % messages.length;
+        if (liveSpan) liveSpan.innerText = messages[idx];
+        if (liveBadge) liveBadge.innerText = badges[idx];
+        // change panel background gradient quickly (extra visual pop)
+        if (livePanel) {
+          livePanel.style.background = `linear-gradient(125deg, rgba(245, 185, 215, 0.8), rgba(245, 155, 195, 0.7))`;
+          setTimeout(() => {
+            livePanel.style.background = `linear-gradient(125deg, rgba(250, 205, 225, 0.7), rgba(240, 170, 200, 0.6))`;
+          }, 300);
+        }
+      }, 5200);
+
+      // buttons with multi‑color feedback + alert (showing full café info)
+      const orderBtn = document.getElementById('orderBtn');
+      const dirBtn = document.getElementById('dirBtn');
+      const eventBtn = document.getElementById('eventBtn');
+
+      if (orderBtn) {
+        orderBtn.addEventListener('click', () => {
+          alert("🍰 15% off on first online order · La Vie En Rose Kothapet (demo)");
+          // animate button
+          orderBtn.style.background = "#fbc4db";
+          setTimeout(() => orderBtn.style.background = "", 180);
+        });
+      }
+      if (dirBtn) {
+        dirBtn.addEventListener('click', () => {
+          alert("📍 3rd floor, Rohit goud estate, near metro pillar 1610, above Fashion factory. Hyderabad 500035");
+          dirBtn.style.transform = "scale(0.95)";
+          setTimeout(() => dirBtn.style.transform = "", 200);
+        });
+      }
+      if (eventBtn) {
+        eventBtn.addEventListener('click', () => {
+          alert("🌸 Book your event at Hyderabad's first pink floral cafe! 7286853101");
+          eventBtn.style.boxShadow = "0 0 30px #f996c0";
+          setTimeout(() => eventBtn.style.boxShadow = "", 250);
+        });
+      }
+
+      // additional interactive effect on mosaic cards (soft click)
+      document.querySelectorAll('.mosaic-card').forEach(card => {
+        card.addEventListener('click', () => {
+          card.style.transition = '0.15s';
+          card.style.background = "#ffd7ea";
+          setTimeout(() => card.style.background = "", 200);
+        });
+      });
+
+      // welcome console (just for flair)
+      console.log('🌹 La Vie En Rose Kothapet — full visual website');
+    })();
+  </script>
+</body>
+</html>
